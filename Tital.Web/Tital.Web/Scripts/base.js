@@ -1,9 +1,9 @@
 ﻿
 /*
- *  前端基础库
+ *  前端基础库 change (嫦娥)
  */
 (function (window) {
-    var shengyan = {};
+    var ce = {};
 
     /*
      *检查是否包含字符串
@@ -104,7 +104,7 @@
     };
     /// <summary>格式化字符串</summary>
     ///'reust is #{0}，#{2}'.format(22,33)或者String.format.call("reust is #{0}，#{2}",1,2)
-    shengyan.Format = function (str, object) {
+    ce.Format = function (str, object) {
         var array = Array.prototype.slice.call(arguments, 1);
         return str.replace(/\\?\#{([^{}]+)\}/gm, function (match, name) {
             if (match.charAt(0) === '\\') {
@@ -440,10 +440,10 @@
                     date = jsonStringToDate(date);
                 }
             }
-            if (shengyan.Type(date) === "Number") {
+            if (ce.Type(date) === "Number") {
                 date = new Date(date);
             }
-            if (shengyan.Type(date) !== "Date") {
+            if (ce.Type(date) !== "Date") {
                 return;
             }
             while (format) {
@@ -522,13 +522,13 @@
         "shortDate": "yyyy-MM-dd",
         "shortTime": "hh:mm"
     });
-    shengyan.LoadScript = function (url) {
+    ce.LoadScript = function (url) {
         var script = document.createElement("script");
         script.type = "text/javascript";
         script.src = url;
         document.body.appendChild(script);
     };
-    shengyan.LoadStyle = function (url) {
+    ce.LoadStyle = function (url) {
         var link = document.createElement("link");
         link.rel = "stylesheet";
         link.type = "text/css";
@@ -536,12 +536,12 @@
         var head = document.getElementsByTagName("head")[0];
         document.body.appendChild(link);
     };
-    shengyan.Type = function (obj) { //类型检测
+    ce.Type = function (obj) { //类型检测
         return obj === null ? "Null" : obj === void 0 ? "Undefined" : Object.prototype.toString.call(obj).slice(8, -1);
     }
     /// <summary>获得URL参数</summary> 
-    ///调用方法 var parma=shengyan.getUrlParam();  params["ur"]
-    shengyan.GetUrlParam = function () {
+    ///调用方法 var parma=ce.getUrlParam();  params["ur"]
+    ce.GetUrlParam = function () {
         var qs = (location.search.length > 0 ? location.search.substring(1) : ""),
             arges = {},
             items = qs.length ? qs.split("&") : [],
@@ -561,7 +561,7 @@
         return arges;
     };
     /// <summary>Cookie操作对象</summary>
-    shengyan.CookieUtil = {
+    ce.CookieUtil = {
         get: function (name) {
             var cookieName = encodeURIComponent(name) + "=",
                 cookieStart = document.cookie.indexOf(cookieName),
@@ -600,14 +600,175 @@
         }
 
     };
+    /* 
+     * 生成唯一的不重复的字符串
+     * @return {String} 返回字符串
+     */
+    ce.Guid = function () {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        }).toUpperCase();
+    };
+
+    /**
+    * 
+    * @memberOf string
+    * @param {Object} obj 要转换成查询字符串的对象
+    * @return {String} 返回转换后的查询字符串
+    */
+    var toQueryPair = function (key, value) {
+        return encodeURIComponent(String(key)) + "=" + encodeURIComponent(String(value));
+    };
+
+    /**
+     * 
+     * @memberOf string
+     * @param {Object} obj 要转换成查询字符串的对象
+     * @return {String} 返回转换后的查询字符串
+     */
+    var toQueryString = function (obj) {
+        var result = [];
+        for (var key in obj) {
+            result.push(toQueryPair(key, obj[key]));
+        }
+        return result.join("&");
+    };
+    /*
+     * 向控制台输出信息的方法,通过url里面的consolefilter参数可以控制tag输出
+     * 
+     * @param {String} msg 要输出的信息
+     */
+    ce.Out = function (text) {
+        console.log(text);
+    };
+    /**
+     * Ajax
+     * 
+     * @memberOf shangyan
+     * @method  ajax
+     * 
+     * @param {Object} option 配置对象，如：isAsync,data,arguments,success,error,complete,timeout,contentType,dataType
+     * @return {Object} ajax 返回一个ajax对象，可以abort掉
+     */
+    ce.Ajax = function (option) {
+        var httpRequest,
+            httpSuccess,
+            timeout,
+            isTimeout = false,
+            isComplete = false;
+
+        option = {
+            url: option.url || "",
+            method: (option.method || "GET").toUpperCase(),
+            data: option.data || null,
+            arguments: option.arguments || null,
+
+            success: option.success || function () { },
+            error: option.error || function () { },
+            complete: option.complete || function () { },
+
+
+            isAsync: option.isAsync || true,
+            timeout: option.timeout || 30000,
+            contentType: option.contentType,
+            dataType: option.dataType || "xml"
+        };
+        if (option.data && typeof option.data === "object") {
+            option.data = toQueryString(option.data);
+        }
+
+
+        timeout = option.timeout;
+
+        httpRequest = new window.XMLHttpRequest();
+
+        /**
+         * @ignore
+         */
+        httpSuccess = function (r) {
+            try {
+                return (!r.status && location.protocol == "file:")
+                    || (r.status >= 200 && r.status < 300)
+                    || (r.status == 304)
+                    || (navigator.userAgent.indexOf("Safari") > -1 && typeof r.status == "undefined");
+            } catch (e) {
+                ce.out("错误：[" + e.name + "] " + e.message + ", " + e.fileName + ", 行号:" + e.lineNumber + "; stack:" + typeof e.stack, 2);
+            }
+            return false;
+        }
+
+        /**
+         * @ignore
+         */
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == 4) {
+                if (!isTimeout) {
+                    var o = {};
+                    o.responseText = httpRequest.responseText;
+                    o.responseXML = httpRequest.responseXML;
+                    o.data = option.data;
+                    o.status = httpRequest.status;
+                    o.uri = option.url;
+                    o.arguments = option.arguments;
+                    if (option.dataType === 'json') {
+                        try {
+                            o.responseJSON = JSON.parse(httpRequest.responseText);
+                        } catch (e) {
+                        }
+                    }
+                    if (httpSuccess(httpRequest)) {
+                        option.success(o.responseJSON || o.responseXML || o.responseText);
+                    } else {
+                        option.error(o);
+                    }
+                    option.complete(o);
+                }
+                isComplete = true;
+                //删除对象,防止内存溢出
+                httpRequest = null;
+            }
+        };
+
+        if (option.method === "GET") {
+            if (option.data) {
+                option.url += (option.url.indexOf("?") > -1 ? "&" : "?") + option.data;
+                option.data = null;
+            }
+            httpRequest.open("GET", option.url, option.isAsync);
+            httpRequest.setRequestHeader("Content-Type", option.contentType || "text/plain;charset=UTF-8");
+            httpRequest.send();
+        } else if (option.method === "POST") {
+            httpRequest.open("POST", option.url, option.isAsync);
+            httpRequest.setRequestHeader("Content-Type", option.contentType || "application/x-www-form-urlencoded;charset=UTF-8");
+            httpRequest.send(option.data);
+        } else {
+            httpRequest.open(option.method, option.url, option.isAsync);
+            httpRequest.send();
+        }
+
+        window.setTimeout(function () {
+            var o;
+            if (!isComplete) {
+                isTimeout = true;
+                o = {};
+                o.uri = option.url;
+                o.arguments = option.arguments;
+
+                option.complete(o);
+            }
+        }, timeout);
+
+        return httpRequest;
+    };
     /*
      *系统信息提示弹出层
      *@method AlertInfo 
-     *@for shengyan
+     *@for ce
      *@params {String} content 提示信息内容
      *@parmas {Function} [可选]fun  确认按钮点击后的回调函数
     */
-    shengyan.AlertInfo = function (content, fun) {
+    ce.AlertInfo = function (content, fun) {
         var okFun, cancerFun;
         if (arguments.length > 2) {
             okFun = arguments[1] || function () { };
@@ -628,7 +789,7 @@
             removeModeal();
             if (cancerFun) { cancerFun(); }
         };
-        var str = shengyan.Format("<div class='modalDiv' style='width: 350px; height: 200px;'>\
+        var str = ce.Format("<div class='modalDiv' style='width: 350px; height: 200px;'>\
                                    <h1 class='title_1'><span>系统提示</span></h1>\
                                     <div class='pop' style='min-width: inherit;'>\
                                         <div class='con_box' style='padding-bottom: 1px;'>\
@@ -655,20 +816,19 @@
         if (cancerBtn) {
             cancerBtn.onclick = hide;
         }
-
     };
-    
+
     /*
      *系统确认取消弹出层
      *@method ComfirmInfo 
-     *@for shengyan
+     *@for ce
      *@params {String} content 提示信息内容
      *@parmas {Function} [可选]okFun  "确认" 按钮点击后的回调函数 
      *@params {Function} [可选]cancerFun "确认"按钮 点击后的回调函数
     */
-    shengyan.ComfirmInfo = function (content, okFun, cancerFun) {
-        shengyan.AlertInfo(content, okFun, cancerFun);
+    ce.ComfirmInfo = function (content, okFun, cancerFun) {
+        ce.AlertInfo(content, okFun, cancerFun);
     };
-    window.shengyan = shengyan;
+    window.shengyan = ce;
 
 })(window);
