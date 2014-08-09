@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tital.Web", "Tital.Web\Tital.Web.csproj", "{410BE152-69CF-4655-B5F9-F67E321622A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "项目文件", "项目文件", "{53456B53-BE17-4C58-A7D5-420996EB240F}"
+	ProjectSection(SolutionItems) = preProject
+		NugetBuild.bat = NugetBuild.bat
+		Tital.Web.nuspec = Tital.Web.nuspec
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.shengyan.com.cn/tfs/feastworld
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Tital.Web\\Tital.Web.csproj
+		SccProjectName1 = Tital.Web
+		SccLocalPath1 = Tital.Web
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{410BE152-69CF-4655-B5F9-F67E321622A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{410BE152-69CF-4655-B5F9-F67E321622A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{410BE152-69CF-4655-B5F9-F67E321622A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{410BE152-69CF-4655-B5F9-F67E321622A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
