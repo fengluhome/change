@@ -61,9 +61,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ajaxTest.aspx" />
     <Content Include="Css\base.css" />
     <Content Include="GruntFile.js" />
     <Content Include="HtmlPage1.html" />
+    <Content Include="HtmlPage2.html" />
     <Content Include="Images\breadnav_sprite.png" />
     <Content Include="Images\btn_sprite.png" />
     <Content Include="Images\calendar_tit_bg.png" />
@@ -86,6 +88,135 @@
     <Content Include="Images\state_sprite.png" />
     <Content Include="Images\switch_sprite.png" />
     <Content Include="Images\tab_sprite.png" />
+    <Content Include="JX-master\JX-master\.gitignore" />
+    <Content Include="JX-master\JX-master\build\jx.all.js" />
+    <Content Include="JX-master\JX-master\build\jx.all.min.js" />
+    <Content Include="JX-master\JX-master\build\jx.uiless.js" />
+    <Content Include="JX-master\JX-master\build\jx.uiless.min.js" />
+    <Content Include="JX-master\JX-master\build\style\image\boxy_btn.png" />
+    <Content Include="JX-master\JX-master\build\style\image\bubble_body.png" />
+    <Content Include="JX-master\JX-master\build\style\image\bubble_btn.png" />
+    <Content Include="JX-master\JX-master\build\style\image\bubble_btn_hl.png" />
+    <Content Include="JX-master\JX-master\build\style\image\bubble_foot.png" />
+    <Content Include="JX-master\JX-master\build\style\image\bubble_head.png" />
+    <Content Include="JX-master\JX-master\build\style\image\button.png" />
+    <Content Include="JX-master\JX-master\build\style\image\context_menu_separator.gif" />
+    <Content Include="JX-master\JX-master\build\style\image\cross.gif" />
+    <Content Include="JX-master\JX-master\build\style\image\point_down.png" />
+    <Content Include="JX-master\JX-master\build\style\image\point_left.png" />
+    <Content Include="JX-master\JX-master\build\style\image\point_right.png" />
+    <Content Include="JX-master\JX-master\build\style\image\point_up.png" />
+    <Content Include="JX-master\JX-master\build\style\image\subicon.gif" />
+    <Content Include="JX-master\JX-master\build\style\image\thumb.gif" />
+    <Content Include="JX-master\JX-master\build\style\image\tooltip.png" />
+    <Content Include="JX-master\JX-master\build\style\image\tooltip_c.png" />
+    <Content Include="JX-master\JX-master\build\style\image\tooltip_l.png" />
+    <Content Include="JX-master\JX-master\build\style\image\tooltip_r.png" />
+    <Content Include="JX-master\JX-master\build\style\image\transparent.gif" />
+    <Content Include="JX-master\JX-master\build\style\jx.all.css" />
+    <Content Include="JX-master\JX-master\build\style\jx.all.min.css" />
+    <Content Include="JX-master\JX-master\build\style\swf\expressInstall.swf" />
+    <Content Include="JX-master\JX-master\build\style\swf\jxaudioobject.swf" />
+    <Content Include="JX-master\JX-master\config.js" />
+    <Content Include="JX-master\JX-master\demo\backup\demo.html" />
+    <Content Include="JX-master\JX-master\demo\backup\jx.nfx.html" />
+    <Content Include="JX-master\JX-master\demo\index.html" />
+    <Content Include="JX-master\JX-master\demo\js\main.js" />
+    <Content Include="JX-master\JX-master\demo\sprite.html" />
+    <Content Include="JX-master\JX-master\demo\style\image\sprite.png" />
+    <Content Include="JX-master\JX-master\demo\style\jx.reset.css" />
+    <Content Include="JX-master\JX-master\demo\style\style.css" />
+    <Content Include="JX-master\JX-master\doc\index.html" />
+    <Content Include="JX-master\JX-master\doc\jx_cheatsheet.html" />
+    <Content Include="JX-master\JX-master\doc\specification\google-javascript.xml" />
+    <Content Include="JX-master\JX-master\doc\specification\styleguide.css" />
+    <Content Include="JX-master\JX-master\doc\specification\styleguide.xsl" />
+    <Content Include="JX-master\JX-master\src\jx.array.js" />
+    <Content Include="JX-master\JX-master\src\jx.audio.js" />
+    <Content Include="JX-master\JX-master\src\jx.base.js" />
+    <Content Include="JX-master\JX-master\src\jx.browser.js" />
+    <Content Include="JX-master\JX-master\src\jx.console.js" />
+    <Content Include="JX-master\JX-master\src\jx.cookie.js" />
+    <Content Include="JX-master\JX-master\src\jx.core.js" />
+    <Content Include="JX-master\JX-master\src\jx.date.js" />
+    <Content Include="JX-master\JX-master\src\jx.development.js" />
+    <Content Include="JX-master\JX-master\src\jx.dom.js" />
+    <Content Include="JX-master\JX-master\src\jx.event.eventparser.js" />
+    <Content Include="JX-master\JX-master\src\jx.event.eventproxy.js" />
+    <Content Include="JX-master\JX-master\src\jx.event.js" />
+    <Content Include="JX-master\JX-master\src\jx.format.js" />
+    <Content Include="JX-master\JX-master\src\jx.fx.js" />
+    <Content Include="JX-master\JX-master\src\jx.http.js" />
+    <Content Include="JX-master\JX-master\src\jx.json.js" />
+    <Content Include="JX-master\JX-master\src\jx.loader.js" />
+    <Content Include="JX-master\JX-master\src\jx.mini.js" />
+    <Content Include="JX-master\JX-master\src\jx.nfx.js" />
+    <Content Include="JX-master\JX-master\src\jx.number.js" />
+    <Content Include="JX-master\JX-master\src\jx.sound.js" />
+    <Content Include="JX-master\JX-master\src\jx.string.js" />
+    <Content Include="JX-master\JX-master\src\jx.swfobject.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.basewindow.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.boxy.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.bubble.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.button.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.calendar.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.contextmenu.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.divselect.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.drag.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.iframescroller.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.iscroll.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.loading.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.marquee.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.masklayer.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.notifier.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.pager.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.pagination.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.panel.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.popupbox.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.resize.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.richeditor.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.rotation.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.scrollarea.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.scrollbar.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.select.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.sortables.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.tab.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.textbox.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.tooltip.js" />
+    <Content Include="JX-master\JX-master\src\jx.ui.touchscroller.js" />
+    <Content Include="JX-master\JX-master\style\image\boxy_btn.png" />
+    <Content Include="JX-master\JX-master\style\image\bubble_body.png" />
+    <Content Include="JX-master\JX-master\style\image\bubble_btn.png" />
+    <Content Include="JX-master\JX-master\style\image\bubble_btn_hl.png" />
+    <Content Include="JX-master\JX-master\style\image\bubble_foot.png" />
+    <Content Include="JX-master\JX-master\style\image\bubble_head.png" />
+    <Content Include="JX-master\JX-master\style\image\button.png" />
+    <Content Include="JX-master\JX-master\style\image\context_menu_separator.gif" />
+    <Content Include="JX-master\JX-master\style\image\cross.gif" />
+    <Content Include="JX-master\JX-master\style\image\point_down.png" />
+    <Content Include="JX-master\JX-master\style\image\point_left.png" />
+    <Content Include="JX-master\JX-master\style\image\point_right.png" />
+    <Content Include="JX-master\JX-master\style\image\point_up.png" />
+    <Content Include="JX-master\JX-master\style\image\subicon.gif" />
+    <Content Include="JX-master\JX-master\style\image\thumb.gif" />
+    <Content Include="JX-master\JX-master\style\image\tooltip.png" />
+    <Content Include="JX-master\JX-master\style\image\tooltip_c.png" />
+    <Content Include="JX-master\JX-master\style\image\tooltip_l.png" />
+    <Content Include="JX-master\JX-master\style\image\tooltip_r.png" />
+    <Content Include="JX-master\JX-master\style\image\transparent.gif" />
+    <Content Include="JX-master\JX-master\style\jx.960grid.css" />
+    <Content Include="JX-master\JX-master\style\jx.reset.css" />
+    <Content Include="JX-master\JX-master\style\jx.typography.css" />
+    <Content Include="JX-master\JX-master\style\jx.ui.boxy.css" />
+    <Content Include="JX-master\JX-master\style\jx.ui.bubble.css" />
+    <Content Include="JX-master\JX-master\style\jx.ui.button.css" />
+    <Content Include="JX-master\JX-master\style\jx.ui.calendar.css" />
+    <Content Include="JX-master\JX-master\style\jx.ui.contextmenu.css" />
+    <Content Include="JX-master\JX-master\style\jx.ui.masklayer.css" />
+    <Content Include="JX-master\JX-master\style\jx.ui.textbox.css" />
+    <Content Include="JX-master\JX-master\style\swf\expressInstall.swf" />
+    <Content Include="JX-master\JX-master\style\swf\jxaudioobject.swf" />
+    <Content Include="JX-master\JX-master\tools\how_to_get_tools.html" />
     <Content Include="output\Scripts\base.js" />
     <Content Include="output\Scripts\base.min.js" />
     <Content Include="Scripts\base.js" />
@@ -94,10 +225,18 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ajaxTest.aspx.cs">
+      <DependentUpon>ajaxTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajaxTest.aspx.designer.cs">
+      <DependentUpon>ajaxTest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
+    <Content Include="JX-master\JX-master\README.markdown" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

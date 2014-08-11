@@ -5,13 +5,13 @@
     <title></title>
     <link href="Css/base.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.7.1.js"></script>
-    
-    <script src="output/Scripts/base.js"></script>
+    <script src="Scripts/base.js"></script>
+
 
 
 </head>
 <body>
-   
+
     <input type="text" id="mobile" />
     <button id="btn_check">验证</button>
 </body>
@@ -25,13 +25,14 @@
         if (ValidDeskMaterialDetail) {
 
             shengyan.AlertInfo(ValidDeskMaterialDetail, function () {
-                shengyan.ComfirmInfo("asdfasdf", function () { console.log("true") }, function () { console.log("false")});
+                shengyan.ComfirmInfo("asdfasdf", function () { console.log("true") }, function () { console.log("false") });
             });
             return;
 
 
         }
     }, false);
+
 
 
 </script>

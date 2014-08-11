@@ -642,6 +642,28 @@
     ce.Out = function (text) {
         console.log(text);
     };
+
+    // 兼容不同浏览器的 Adapter 适配层
+    if (typeof window.XMLHttpRequest === "undefined") {
+        /**
+         * @ignore
+         */
+        window.XMLHttpRequest = function () {
+            return new window.ActiveXObject(navigator.userAgent.indexOf("MSIE 5") >= 0 ? "Microsoft.XMLHTTP" : "Msxml2.XMLHTTP");
+        };
+    }
+    //检查ajax请求
+    var httpSuccess = function (r) {
+        try {
+            return (!r.status && location.protocol == "file:")
+                || (r.status >= 200 && r.status < 300)
+                || (r.status == 304)
+                || (navigator.userAgent.indexOf("Safari") > -1 && typeof r.status == "undefined");
+        } catch (e) {
+            ce.out("错误：[" + e.name + "] " + e.message + ", " + e.fileName + ", 行号:" + e.lineNumber + "; stack:" + typeof e.stack, 2);
+        }
+        return false;
+    };
     /**
      * Ajax
      * 
@@ -672,7 +694,7 @@
             isAsync: option.isAsync || true,
             timeout: option.timeout || 30000,
             contentType: option.contentType,
-            dataType: option.dataType || "xml"
+            dataType: option.dataType || "xml",
         };
         if (option.data && typeof option.data === "object") {
             option.data = toQueryString(option.data);
@@ -682,21 +704,6 @@
         timeout = option.timeout;
 
         httpRequest = new window.XMLHttpRequest();
-
-        /**
-         * @ignore
-         */
-        httpSuccess = function (r) {
-            try {
-                return (!r.status && location.protocol == "file:")
-                    || (r.status >= 200 && r.status < 300)
-                    || (r.status == 304)
-                    || (navigator.userAgent.indexOf("Safari") > -1 && typeof r.status == "undefined");
-            } catch (e) {
-                ce.out("错误：[" + e.name + "] " + e.message + ", " + e.fileName + ", 行号:" + e.lineNumber + "; stack:" + typeof e.stack, 2);
-            }
-            return false;
-        }
 
         /**
          * @ignore
@@ -761,6 +768,123 @@
 
         return httpRequest;
     };
+    /*
+    * 上传组件  目前只适用于上传单张图片
+    *@params {String} url 
+    *@params {String} Option.targetInput  触发上传元素ID
+    *@params {String} option.targetImage  上传文件成功后显示的图片id
+    */
+    ce.UploadInput = function (url, option) {
+        // <input id='pictureFile' accept='image/*' type='file' multiple='multiple' data-target='#pictureBtn' style='display: none' />
+        var setion = {
+            targetInput: option.targetInput,
+            targetImage: option.targetImage
+        }
+        var input = document.createElement("input");
+        input.type = "file";
+        input.accept = "image/*";
+        input.multiple = 'multiple';
+        input.style.display = "none";
+        input.onchange = function () {
+            ce.upload("/content/upload", {
+                data: this.files,
+                count: 1,
+                size: 2,
+                upload: {
+                    progress: function () {
+                        //进度条
+                    }
+
+                },
+                success: function (data) {
+                    // 显示图片
+                    document.getElementById(option.targetImage).src = data;
+                }
+            });
+        }
+
+        document.getElementById(option.targetInput).click = (function (input) { input.click(); }(input));
+
+    };
+
+    /* 
+     *异步上传原型
+     */
+    ce.Upload = function (url, option) {
+
+        option = {
+            data: option.data || null,
+            success: option.success || function () { },
+            error: option.error || function () { },
+            isAsync: option.isAsync || true,
+            dataType: option.dataType || "xml",
+            image: true,  //上传文件类型 默认图片
+            count: option.count || 1, //多上传个数进行限制
+            size: 2 //默认2M
+        };
+        if (option.data.lenght > option.count) {
+            ce.AlertInfo("对不起只能上传一个" + (opion.image ? "图片" : "文件") + "!");
+        }
+        if (opion.image) {
+            for (var i = 0; i < option.data.length; i++) {
+                if (!option.data[i].type.match(/image.*/)) {
+                    ce.AlertInfo(" 只能上传图片!");
+                    return;
+                } else {
+                    if (parseFloat(files[i].size) > (1024 * 1024 * option.size)) {
+                        ce.AlertInfo("只能上传小于" + option.size + "M的图片!");
+                        return;
+                    }
+                }
+            }
+
+        }
+        var xhr = new window.XMLHttpRequest();
+        xhr.open("POST", url, option.async);
+
+        delete headers["Content-Type"];
+        headers["X-Requested-With"] = "XMLHttpRequest";
+
+        for (i in headers) {
+            xhr.setRequestHeader(i, headers[i]);
+        }
+        // xhr.addEventListener("error", callback);
+
+        if (option.progress)
+            xhr.addEventListener("progress", option.progress);
+        if (option.upload && s.upload.success)
+            xhr.upload.addEventListener("load", option.upload.load);
+        if (option.upload && s.upload.progress)
+            xhr.upload.addEventListener("progress", option.upload.progress);
+
+        xhr.onreadystatechange = function () {
+            if (httpRequest.readyState == 4) {
+                var o = {};
+                o.responseText = xhr.responseText;
+                o.responseXML = xhr.responseXML;
+                o.data = option.data;
+                o.status = xhr.status;
+                o.uri = option.url;
+                if (option.dataType === 'json') {
+                    try {
+                        o.responseJSON = JSON.parse(httpRequest.responseText);
+                    } catch (e) {
+                    }
+                }
+                if (httpSuccess(httpRequest)) {
+                    option.success(o.responseJSON || o.responseXML || o.responseText);
+                } else {
+                    option.error(o);
+                }
+
+                //删除对象,防止内存溢出
+                xhr = null;
+            }
+        };
+
+        xhr.send(s.data);
+    }
+
     /*
      *系统信息提示弹出层
      *@method AlertInfo 
