@@ -5,6 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tital.Web", "Tital.Web\Tita
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "项目文件", "项目文件", "{53456B53-BE17-4C58-A7D5-420996EB240F}"
 	ProjectSection(SolutionItems) = preProject
+		bulid.bat = bulid.bat
 		NugetBuild.bat = NugetBuild.bat
 		Tital.Web.nuspec = Tital.Web.nuspec
 	EndProjectSection

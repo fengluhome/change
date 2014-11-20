@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Tital.Web</id>
-    <version>1.0.19</version>
+    <version>1.1.42</version>
     <title>Tital.Web</title>
     <authors>Li FenLu</authors>
     <owners>Li FenLu</owners>
@@ -14,7 +14,18 @@
   </metadata>
   <files>
     <!--js-->
-    <file src="Tital.Web\output\Scripts\base.js" target="Content\Scripts\base.js" />
-    <file src="Tital.Web\output\Scripts\base.min.js" target="Content\Scripts\base.min.js" />
+    <file src="Tital.Web\output\Content\Change\Scripts\change.js" target="Content\Content\Change\Scripts\change.js" />
+    <file src="Tital.Web\output\Content\Change\Scripts\change.min.js" target="Content\Content\Change\Scripts\change.min.js" />
+    <!--css-->
+    <file src="Tital.Web\output\Content\Change\Css\change.css" target="Content\Content\Change\Css\change.css" />
+    <file src="Tital.Web\output\Content\Change\Css\change.min.css" target="Content\Content\Change\Css\change.min.css" />
+
+    <!--img-->
+    <file src="Tital.Web\output\Content\Change\Images\ico_sprite.png" target="Content\Content\Change\Images\ico_sprite.png" />
+    <file src="Tital.Web\output\Content\Change\Images\btn_sprite.png" target="Content\Content\Change\Images\btn_sprite.png" />
+    <file src="Tital.Web\output\Content\Change\Images\ico_sprite_new.png" target="Content\Content\Change\Images\ico_sprite_new.png" />
+    <file src="Tital.Web\output\Content\Change\Images\checkbox_radio_sprite.png" target="Content\Content\Change\Images\checkbox_radio_sprite.png" />
+
+
   </files>
 </package>

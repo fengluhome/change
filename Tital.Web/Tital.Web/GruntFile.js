@@ -1,12 +1,23 @@
 ﻿module.exports = function (grunt) {
 
-    // Project configuration.  
+    // Project configuration.   cityCascading
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             basic_and_extras: {
                 files: {
-                    'output/Scripts/base.js': ['Scripts/base.js', 'Scripts/valid.js'],
+                    'output/Content/Change/Scripts/change.js':
+                      [
+                          'Content/Change/Scripts/change.js',
+                          'Content/Change/Scripts/change-datapager.js',
+                          'Content/Change/Scripts/change-calendar.js',
+                          'Content/Change/Scripts/change-cityCascading.js',
+                          'Content/Change/Scripts/change-authority.js',
+                          'Content/Change/Scripts/change-valid.js',
+                         'Content/Change/Scripts/change-phone.js'
+                      ],
+
+                    'output/Content/Change/Css/change.css': ['Content/Change/Css/change.css']
 
                 },
             },
@@ -14,7 +25,7 @@
         cssmin: {
             combine: {
                 files: {
-                    'output/Css/base.min.css': ['Css/base.css']
+                    'output/Content/Change/Css/change.min.css': ['Content/Change/Css/change.css']
                 }
             }
         },
@@ -25,7 +36,16 @@
 
             release: {//任务四：合并压缩
                 files: {
-                    'output/Scripts/base.min.js': ['Scripts/base.js', 'Scripts/valid.js'],
+                    'output/Content/Change/Scripts/change.min.js':
+                        [
+                          'Content/Change/Scripts/change.js',
+                          'Content/Change/Scripts/change-datapager.js',
+                          'Content/Change/Scripts/change-calendar.js',
+                          'Content/Change/Scripts/change-cityCascading.js',
+                          'Content/Change/Scripts/change-authority.js',
+                          'Content/Change/Scripts/change-valid.js',
+                          'Content/Change/Scripts/change-phone.js'
+                        ]
                 }
             }
         },
@@ -33,9 +53,9 @@
             dynamic: {
                 files: [{
                     expand: true,
-                    cwd: 'Images/',
+                    cwd: 'Content/Change/Images/',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'output/Images'
+                    dest: 'output/Content/Change/Images'
                 }]
             }
         },
@@ -56,7 +76,7 @@
                     undef: true,
                 },
                 files: {
-                    src: ['Scripts/base.js', 'Scripts/ReturnCode.js', 'Scripts/valid.js']
+                    src: ['Content/Change/Scripts/change.js', 'Content/Change/Scripts/valid.js']
                 },
             }
         }
@@ -73,7 +93,7 @@
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
     // Default task(s).  
-    grunt.registerTask('default', ['jshint']);
-    grunt.registerTask('bulid', ['concat', 'uglify']);
-    //grunt.registerTask('bulid', ['concat', 'cssmin', 'uglify', 'imagemin']);
+    // grunt.registerTask('default', ['jshint']);
+    // grunt.registerTask('bulid', ['concat', 'uglify']);
+    grunt.registerTask('bulid', ['concat', 'cssmin', 'uglify', 'imagemin']);
 };

@@ -1,10 +1,5 @@
-D:\Work\Daily\李凤禄\Tital.Web\Tital.Web\bin\Tital.Web.dll
-D:\Work\Daily\李凤禄\Tital.Web\Tital.Web\bin\Tital.Web.pdb
-D:\Work\Daily\李凤禄\Tital.Web\Tital.Web\obj\Debug\Tital.Web.csprojResolveAssemblyReference.cache
-D:\Work\Daily\李凤禄\Tital.Web\Tital.Web\obj\Debug\Tital.Web.dll
-D:\Work\Daily\李凤禄\Tital.Web\Tital.Web\obj\Debug\Tital.Web.pdb
-E:\work\change\Tital.Web\Tital.Web\bin\Tital.Web.dll
-E:\work\change\Tital.Web\Tital.Web\bin\Tital.Web.pdb
-E:\work\change\Tital.Web\Tital.Web\obj\Debug\Tital.Web.csprojResolveAssemblyReference.cache
-E:\work\change\Tital.Web\Tital.Web\obj\Debug\Tital.Web.dll
-E:\work\change\Tital.Web\Tital.Web\obj\Debug\Tital.Web.pdb
+D:\Work\Daily\李凤禄\change\Tital.Web\Tital.Web\bin\Tital.Web.dll
+D:\Work\Daily\李凤禄\change\Tital.Web\Tital.Web\bin\Tital.Web.pdb
+D:\Work\Daily\李凤禄\change\Tital.Web\Tital.Web\obj\Debug\Tital.Web.csprojResolveAssemblyReference.cache
+D:\Work\Daily\李凤禄\change\Tital.Web\Tital.Web\obj\Debug\Tital.Web.dll
+D:\Work\Daily\李凤禄\change\Tital.Web\Tital.Web\obj\Debug\Tital.Web.pdb
