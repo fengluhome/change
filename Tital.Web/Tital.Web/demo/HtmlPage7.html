@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    Object.prototype.Copy = function () {
+        return JSON.parse(JSON.stringify(this));
+    }
+    Array.prototype.Copy = function () {
+        return JSON.parse(JSON.stringify(this));
+    }
+
+    var a = { a: [2, 34], anc: "234", e: {} }
+
+
+</script>
+</html>

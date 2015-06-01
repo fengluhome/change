@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <title></title>
+    <link href='../Content/Change/Css/change.css' rel='stylesheet' />
+
+    <script src="../Content/Change/Scripts/change-core.js"></script>
+    <script src='../Content/Change/Scripts/change-authority.js'></script>
+</head>
+<body>
+
+    <input type="checkbox" />
+    <input type="text" />
+    <input type="radio" />
+    <input type="password" />
+
+    <input type="checkbox" />
+    <div id='div'></div>
+    <script type="text/javascript">
+        window.addEventListener("load", function () {
+            var dataTest = [
+   { "ModuleId": "001001", "Name": "财务管理", "Checked": true, "Disabled": true, "Sequence": 20 },
+   { "ModuleId": "001001001", "Name": "购买服务及续费", "Checked": false, "Disabled": false, "Sequence": 20 },
+   { "ModuleId": "001002", "Name": "账户设置", "Checked": true, "Disabled": false, "Sequence": 10 },
+   { "ModuleId": "001002001", "Name": "客源入口管理", "Checked": false, "Disabled": false, "Sequence": 20 },
+   { "ModuleId": "001002001001", "Name": "销售客服创建", "Checked": false, "Disabled": false, "Sequence": 20 },
+
+   { "ModuleId": "002001", "Name": "客户管理", "Checked": false, "Disabled": false, "Sequence": 30 },
+   { "ModuleId": "002001001", "Name": "会员价值设置", "Checked": false, "Disabled": false, "Sequence": 30 },
+   { "ModuleId": "002001002", "Name": "客户档案列表", "Checked": false, "Disabled": false, "Sequence": 20 },
+   { "ModuleId": "002001003", "Name": "批量导出", "Checked": false, "Disabled": false, "Sequence": 10 },
+   { "ModuleId": "002001004", "Name": "微信客户", "Checked": false, "Disabled": false, "Sequence": 5 },
+   { "ModuleId": "002002", "Name": "营销管理", "Checked": false, "Disabled": false, "Sequence": 20 },
+   { "ModuleId": "002002001", "Name": "审核", "Checked": false, "Disabled": false, "Sequence": 20 },
+   { "ModuleId": "002002002", "Name": "渠道营销", "Checked": false, "Disabled": false, "Sequence": 10 },
+   { "ModuleId": "002003", "Name": "网络门店管理", "Checked": false, "Disabled": false, "Sequence": 10 },
+   { "ModuleId": "002003001", "Name": "微信管理", "Checked": false, "Disabled": false, "Sequence": 10 },
+   { "ModuleId": "003001", "Name": "预定管理", "Checked": false, "Disabled": false, "Sequence": 20 },
+   { "ModuleId": "003001001", "Name": "智能订餐台", "Checked": false, "Disabled": false, "Sequence": 10 },
+   { "ModuleId": "003002", "Name": "订单管理", "Checked": false, "Disabled": false, "Sequence": 10 },
+   { "ModuleId": "003002001", "Name": "订单金额录入", "Checked": false, "Disabled": false, "Sequence": 10 },
+   { "ModuleId": "004001", "Name": "销售管理", "Checked": false, "Disabled": false, "Sequence": 10 },
+   { "ModuleId": "004001001", "Name": "客户资源分配", "Checked": false, "Disabled": false, "Sequence": 10 },
+   { "ModuleId": "001", "Name": "管理职能", "Checked": false, "Disabled": false, "Sequence": 40 },
+   { "ModuleId": "002", "Name": "营销职能", "Checked": false, "Disabled": false, "Sequence": 30 },
+   { "ModuleId": "003", "Name": "预定职能", "Checked": false, "Disabled": false, "Sequence": 20 },
+   { "ModuleId": "004", "Name": "销售职能", "Checked": false, "Disabled": false, "Sequence": 10 }
+            ];
+            var data = [{ "ModuleId": "001002", "Name": "账户管理", "Checked": true, "Disabled": true, "Sequence": 10 },
+                { "ModuleId": "001002001", "Name": "客源入口管理", "Checked": false, "Disabled": false, "Sequence": 20 },
+                { "ModuleId": "001002003", "Name": "购买服务及续费", "Checked": false, "Disabled": false, "Sequence": 30 }, { "ModuleId": "002001", "Name": "客户管理", "Checked": false, "Disabled": false, "Sequence": 30 }, { "ModuleId": "002001001", "Name": "会员价值设置", "Checked": false, "Disabled": false, "Sequence": 30 }, { "ModuleId": "002001002", "Name": "客户档案列表", "Checked": true, "Disabled": true, "Sequence": 20 }, { "ModuleId": "002001003", "Name": "批量导出", "Checked": false, "Disabled": false, "Sequence": 10 }, { "ModuleId": "002001004", "Name": "微信客户", "Checked": false, "Disabled": false, "Sequence": 5 }, { "ModuleId": "002002", "Name": "营销管理", "Checked": false, "Disabled": false, "Sequence": 20 }, { "ModuleId": "002002001", "Name": "营销方案审核", "Checked": false, "Disabled": false, "Sequence": 20 }, { "ModuleId": "002002002", "Name": "渠道营销", "Checked": false, "Disabled": false, "Sequence": 10 }, { "ModuleId": "002002003", "Name": "微信通知", "Checked": false, "Disabled": false, "Sequence": 5 }, { "ModuleId": "002003", "Name": "网络门店管理", "Checked": false, "Disabled": false, "Sequence": 10 }, { "ModuleId": "002003001", "Name": "微信管理", "Checked": false, "Disabled": false, "Sequence": 10 }, { "ModuleId": "002003001001", "Name": "绑定微信公众平台", "Checked": false, "Disabled": false, "Sequence": 10 }, { "ModuleId": "003001", "Name": "预订管理", "Checked": false, "Disabled": false, "Sequence": 20 }, { "ModuleId": "003001001", "Name": "智能订餐台", "Checked": false, "Disabled": false, "Sequence": 10 }, { "ModuleId": "003002", "Name": "订单管理", "Checked": false, "Disabled": false, "Sequence": 10 }, { "ModuleId": "003002001", "Name": "订单金额录入", "Checked": false, "Disabled": false, "Sequence": 10 }, { "ModuleId": "004001", "Name": "销售管理", "Checked": false, "Disabled": false, "Sequence": 10 }, { "ModuleId": "004001001", "Name": "客户资源分配", "Checked": true, "Disabled": true, "Sequence": 10 }, { "ModuleId": "001", "Name": "管理职能", "Checked": false, "Disabled": false, "Sequence": 40 }, { "ModuleId": "002", "Name": "营销职能", "Checked": false, "Disabled": false, "Sequence": 30 }, { "ModuleId": "003", "Name": "预订职能", "Checked": false, "Disabled": false, "Sequence": 20 }, { "ModuleId": "004", "Name": "销售职能", "Checked": false, "Disabled": false, "Sequence": 10 }];
+            var obj = new shengyan.Authority(data, "div");
+            obj.SetValue(["003001001", "0012022"]);
+
+            console.log(obj.GetValue());
+        });
+    </script>
+</body>
+</html>

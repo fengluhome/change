@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <button type="button">new Array 创建方式</button>
+
+    <button type="button">[]创建方式</button>
+</body>
+<script type="text/javascript">
+    var bts = document.querySelectorAll("button");
+    bts[0].addEventListener("click", function () {
+        var starend = new Date;
+        for (var i = 0; i < 100000000; i++) {
+            var a = new Array();
+        }
+        var end = new Date();
+
+        console.log("new Array  " + (end - starend));
+    }, false);
+
+    bts[1].addEventListener("click", function () {
+        var starend = new Date;
+        for (var i = 0; i < 100000000; i++) {
+            var a = [];
+        }
+        var end = new Date();
+
+        console.log("[]创建方式  " + (end - starend));
+    }, false);
+
+</script>
+</html>

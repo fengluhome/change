@@ -1,20 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tital.Web", "Tital.Web\Tital.Web.csproj", "{410BE152-69CF-4655-B5F9-F67E321622A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "项目文件", "项目文件", "{53456B53-BE17-4C58-A7D5-420996EB240F}"
 	ProjectSection(SolutionItems) = preProject
-		bulid.bat = bulid.bat
-		NugetBuild.bat = NugetBuild.bat
-		Tital.Web.nuspec = Tital.Web.nuspec
+		前端框架API文档.docx = 前端框架API文档.docx
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 2
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://tfs.shengyan.com.cn/tfs/feastworld
+		SccTeamFoundationServer = http://tfs.shengyan.com.cn/tfs/infrastructure
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = Tital.Web\\Tital.Web.csproj
 		SccProjectName1 = Tital.Web

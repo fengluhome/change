@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <iframe src="http://www.baidu.com"></iframe>
+    <iframe src="http://www.jd.com"></iframe>
+    <script type="text/javascript">
+        for (var i = 0; i < frames.length; i++) {
+            frames[i].location = "about:blank";
+        }
+    </script>
+</body>
+</html>

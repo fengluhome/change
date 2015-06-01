@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    <style type="text/css">
+        #tasiway { width: 800px; height: 100px; background: #e8e8ff; position: relative; }
+        #move { position: absolute; left: 0px; width: 100px; height: 100px; background: #a9ea00; }
+    </style>
+    <script src="../Content/Change/Scripts/change.js"></script>
+</head>
+<body>
+    <div id="tasiway">
+        <div id="move"></div>
+    </div>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var el = document.getElementById("move");
+        var parent = document.getElementById("tasiway");
+        var change = parent.offsetWidth - el.offsetWidth;
+        var begin = parseFloat(window.getComputedStyle(el, null).left);
+        var end = begin + change;
+        var fps = 30;
+        var interval = 1000 / fps;
+        var duration = 1500;
+        var bounce = function (per) {
+            if (per < (1 / 2.75)) {
+                return 7.5625 * per * per;
+            } else if (per < (2 / 2.75)) {
+                return (7.5625 * (per -= (1.5 / 2.75)) * per + 0.75);
+            } else if (per < (2.5 / 2.75)) {
+                return (7.5625 * (per -= (2.25 / 2.75)) * per + 0.9375);
+            } else {
+                return (7.5625 * (per -= (2.625 / 2.75)) * per + 0.984375);
+            }
+        };
+        /*
+        *  @params t 指缓动效果开始执行到当前帧所经过的时间段
+        * @params b beginning val 初始值
+        * @params c change 要变化的总量
+        * @params d 动画持续的时间
+        */
+        function easeOutBounce(t, b, c, d) {
+            if ((t /= d) < (1 / 2.75)) {
+                return c * (7.5625 * t * t) + b;
+            } else if (t < (2 / 2.75)) {
+                return c * (7.5625 * (t -= (1.5 / 2.75)) * t + .75) + b;
+            } else if (t < (2.5 / 2.75)) {
+                return c * (7.5625 * (t -= (2.25 / 2.75)) * t + .9375) + b;
+            } else {
+                return c * (7.5625 * (t -= (2.625 / 2.75)) * t + .984375) + b;
+            }
+        }
+
+        ;
+        el.onclick = function () {
+            var beginTime = new Date;
+            function body() {
+                var per = new Date - beginTime;
+                if (per >= duration) {
+                    el.style.left = end + "px";
+                    return false;
+                } else {
+                    var a = easeOutBounce(per, begin, change, duration);
+                    el.style.left = a + "px";
+                    return true;
+                }
+            };
+
+            (function animlHiden() {
+                if (body()) { requestAnimFrame(animlHiden); }
+            })();
+        };
+    };
+
+</script>
+</html>

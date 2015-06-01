@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>弹出层</title>
+    <link href="../Content/Change/Css/change.css" rel="stylesheet" />
+    <script src="../Content/Change/Scripts/change-core.js"></script>
+
+    <script src="../Content/Change/Scripts/change-ui.js"></script>
+</head>
+<body>
+
+
+    <button id="btn_check">ComfirmInfo</button>
+
+    <button id="btn-alert">AlertInfo</button>
+
+    <button id="btn-header">HeaderInfo</button>
+    <button id="btn-page">HeaderInfo</button>
+
+
+</body>
+<script type="text/javascript">
+    document.getElementById("btn_check").addEventListener("click", function () {
+
+        shengyan.ComfirmInfo("撒地方是发送放到暗室逢灯阿斯蒂芬暗室逢灯暗室逢灯艾丝凡的撒地方", function () {
+            alert("Ok");
+        }, function () {
+            alert("cancer");
+        });
+
+
+
+
+    }, false);
+    document.getElementById("btn-alert").addEventListener("click", function () {
+        shengyan.AlertInfo("成功", function () {
+            alert("隐藏");
+        });
+    });
+  
+    
+    document.getElementById("btn-page").addEventListener("click", function () {
+        shengyan.AlertPage.Show("checkbox.html");
+    });
+
+</script>
+</html>

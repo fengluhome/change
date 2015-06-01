@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+
+    function Node(element) {
+        this.element = element;
+        this.next = null;
+        this.previous = null;
+    }
+
+    function LList() {
+        this.head = new Node("head");
+        this.head.next = this.head;
+        this.find = find;
+        this.insert = insert;
+        this.display = display;
+        this.remove = remove;
+        this.findLast = findLast;
+        this.dispReverse = dispReverse;
+        this.advance = advance;
+        this.back = back;
+    }
+
+    function dispReverse() {
+        var currNode = this.head;
+        currNode = this.findLast();
+        while (!(currNode.previous == null)) {
+            console.log(currNode.element);
+            currNode = currNode.previous;
+        }
+    }
+
+    function findLast() {
+        var currNode = this.head;
+        while (!(currNode.next == null)) {
+            currNode = currNode.next;
+        }
+        return currNode;
+    }
+
+    function remove(item) {
+        var currNode = this.find(item);
+        if (!(currNode.next == null)) {
+            currNode.previous.next = currNode.next;
+            currNode.next.previous = currNode.previous;
+            this.head = currNode.next;
+            currNode.next = null;
+            currNode.previous = null;
+           
+        }
+    }
+
+    function display() {
+        var currNode = this.head;
+        while (!(currNode.next == null) && !(currNode.next.element == this.head.element)) {
+            console.log(currNode.element);
+            currNode = currNode.next;
+        }
+    }
+
+    function find(item) {
+        var currNode = this.head;
+        while (currNode.element != item) {
+            currNode = currNode.next;
+        }
+        return currNode;
+    }
+
+    function insert(newElement, item) {
+        var newNode = new Node(newElement);
+        var current = this.find(item);
+        newNode.next = this.head;
+        newNode.previous = current;
+        current.next = newNode;
+    }
+
+    function advance(item, n) {
+
+        var current = this.find(item);
+        var parent = current.previous;
+        while (parent.previous != null && n > 0) {
+            parent = parent.previous;
+            n--;
+        }
+        if (parent) {
+            current.previous.next = current.next;
+            current.next.previous = current.previous;
+            if (n === 0) {
+
+                parent.next.previous = current;
+                current.next = parent.next;
+
+                current.previous = parent;
+                parent.next = current;
+            } else {
+
+                current.previous = null;
+                current.next = parent;
+                parent.previous = current;
+
+                this.head = current;
+            }
+
+        }
+
+    }
+
+    function back(item, n) {
+
+        var current = this.find(item);
+        var nest = current.next;
+        while (nest.next != null && n > 0) {
+            nest = nest.next;
+            n--;
+        }
+        if (nest) {
+            current.previous.next = current.next;
+            current.next.previous = current.previous;
+
+            if (n === 0) {
+
+                nest.previous.next = current;
+                current.previous = nest.previous;
+
+                current.next = nest;
+                nest.previous = current;
+            } else {
+
+                nest.next = current;
+                current.previous = nest;
+
+                current.next = null;
+
+            }
+        }
+
+    }
+
+
+    var cities = new LList();
+    cities.insert("2", "head");
+    for (var i = 2; i <= 41; i++) {
+        cities.insert((i + 1).toString(), i.toString());
+    }
+    ;
+
+    var first = cities.head;
+    i = 41;
+    while (i > 2) {
+        if (i === 11) {
+            var del = first.next.next;
+            first = del.next;
+            cities.remove(del.element);
+        } else {
+            var del = first.next.next;
+            first = del.next;
+            cities.remove(del.element);
+        }
+
+        i--;
+
+    }
+    cities.display();
+
+
+    //cities.advance("Alma5", 80);
+    //cities.back("Alma", 30);
+
+ 
+
+
+
+</script>
+</html>

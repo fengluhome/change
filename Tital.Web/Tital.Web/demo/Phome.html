@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="../Content/Change/Css/change.css" rel="stylesheet" />
+    <script src="../Content/Change/Scripts/jquery-1.7.1.js"></script>
+    <script src="../Content/Change/Scripts/query.mockjax.js"></script>
+    <script src="../Content/Change/Scripts/change.js"></script>
+    <script src="../Content/Change/Scripts/ReturnCode.js"></script>
+    <script src="../Content/Change/Scripts/change-valid.js"></script>
+    <script src="../Content/Change/Scripts/change-phone.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <th style="vertical-align: initial;">手机：</th>
+            <td id="divphone"></td>
+        </tr>
+    </table>
+
+    <button id="btncheck">234234</button>
+</body>
+
+<script type="text/javascript">
+
+    $.mockjax({
+        url: "/delete",
+        responseText: { Code: 0 }
+    });
+    $.mockjax({
+        url: "/add",
+        responseText: { Code: 0 }
+
+    });
+    $.mockjax({
+        url: "/update",
+        responseText: { Code: 0 }
+
+    });
+   
+    window.addEventListener("load", function () {
+        var phones = new shengyan.UIPone(
+            {
+                userGuid: "1123123",
+                containerID: "divphone",
+                phoneArray: ["1111111111", "12312312311"],
+                deleteUrl: "/delete",
+                addUrl: "/add",
+                updateUrl: "/update"
+
+            });
+
+
+        document.getElementById("btncheck").addEventListener("click", function () {
+
+            if (!phones.Execute()) {
+                return;
+            }
+
+        }, false);
+
+    });
+</script>
+</html>

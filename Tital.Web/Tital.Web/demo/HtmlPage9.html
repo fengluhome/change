@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../Content/Change/Scripts/knockout-3.1.0.debug.js"></script>
+</head>
+<body>
+    <p>First name:<span data-bind="text:firstName"> </span></p>
+    <p>Last name:<span data-bind="text:lastName"></span></p>
+    <p>Hello, <input data-bind="value:fullName" /></p>
+    <script type="text/javascript">
+        var viewModal = {
+            firstName: ko.observable("Planet"),
+            lastName: ko.observable("Earth")
+             
+        }
+        viewModal.fullName = ko.dependentObservable({
+            read: function () {
+                return this.firstName() + " " + this.lastName();
+            },
+            write: function (value) {
+                var lastSpacePos = value.lastIndexOf(" ");
+                if (lastSpacePos > 0) {
+                    this.firstName(value.substring(0, lastSpacePos));
+                    this.lastName(value.substring(lastSpacePos + 1));
+                }
+            },
+            owner: viewModal
+        });
+        ko.applyBindings(viewModal);
+    </script>
+</body>
+</html>

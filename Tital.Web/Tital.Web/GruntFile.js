@@ -8,13 +8,19 @@
                 files: {
                     'output/Content/Change/Scripts/change.js':
                       [
-                          'Content/Change/Scripts/change.js',
+                          'Content/Change/Scripts/change-core.js',
+                          'Content/Change/Scripts/change-ajax.js',
+                          'Content/Change/Scripts/change-upload.js',
+                          'Content/Change/Scripts/change-print.js',
+                          'Content/Change/Scripts/change-ui.js',
+                          'Content/Change/Scripts/change-animframe.js',
+                          'Content/Change/Scripts/change-serialize.js',
                           'Content/Change/Scripts/change-datapager.js',
                           'Content/Change/Scripts/change-calendar.js',
                           'Content/Change/Scripts/change-cityCascading.js',
                           'Content/Change/Scripts/change-authority.js',
                           'Content/Change/Scripts/change-valid.js',
-                         'Content/Change/Scripts/change-phone.js'
+                          'Content/Change/Scripts/change-phone.js'
                       ],
 
                     'output/Content/Change/Css/change.css': ['Content/Change/Css/change.css']
@@ -38,7 +44,13 @@
                 files: {
                     'output/Content/Change/Scripts/change.min.js':
                         [
-                          'Content/Change/Scripts/change.js',
+                          'Content/Change/Scripts/change-core.js',
+                          'Content/Change/Scripts/change-ajax.js',
+                          'Content/Change/Scripts/change-upload.js',
+                          'Content/Change/Scripts/change-print.js',
+                          'Content/Change/Scripts/change-ui.js',
+                          'Content/Change/Scripts/change-animframe.js',
+                          'Content/Change/Scripts/change-serialize.js',
                           'Content/Change/Scripts/change-datapager.js',
                           'Content/Change/Scripts/change-calendar.js',
                           'Content/Change/Scripts/change-cityCascading.js',
@@ -92,8 +104,8 @@
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
-    // Default task(s).  
+    //Default task(s).  
     // grunt.registerTask('default', ['jshint']);
     // grunt.registerTask('bulid', ['concat', 'uglify']);
-    grunt.registerTask('bulid', ['concat', 'cssmin', 'uglify', 'imagemin']);
+    grunt.registerTask('default', ['concat', 'cssmin', 'uglify', 'imagemin']);
 };

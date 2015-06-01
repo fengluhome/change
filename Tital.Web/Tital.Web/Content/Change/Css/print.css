@@ -1,0 +1,27 @@
+﻿@page rotated {
+    size: landscape;
+}
+
+/*body {
+    margin: 0px;
+    padding: 0px;
+    width: 80px;
+    color: red;
+    background-color: #008000;
+    width: 88mm;
+}
+
+h1 {
+    margin-top: -10px;
+    background-color: #0000cd;
+}*/
+#a4 {
+    width: 200mm;
+    height: 279mm;
+    
+}
+
+#a58 {
+    width: 58mm;
+    margin-left: -5mm;
+}

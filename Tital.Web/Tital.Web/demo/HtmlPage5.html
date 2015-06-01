@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <div id="abc" style="height: 100%; width: 100%; overflow: hidden; position: absolute;">
+    </div>
+</body>
+<script type="text/javascript">
+    var body = document.getElementById("abc");
+    var page = {
+        width: body.clientWidth,
+        height: body.clientHeight
+    };
+
+    alert("宽度：" + page.width + "\r\n高度:" + page.height);
+
+</script>
+</html>

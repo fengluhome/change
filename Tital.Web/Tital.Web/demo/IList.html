@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    function Node(element) {
+        this.element = element;
+        this.next = null;
+    }
+
+    function LList() {
+        this.head = new Node("head");
+        this.find = find;
+        this.insert = insert;
+        this.display = display;
+        this.findPrevious = findPrevious;
+        this.remove = remove;
+    }
+
+    function find(item) {
+        var currNode = this.head;
+        while (currNode.element != item) {
+            currNode = currNode.next;
+        }
+        return currNode;
+    }
+
+    function insert(newElement, item) {
+        var newNode = new Node(newElement);
+        var current = this.find(item);
+        newNode.next = current.next;
+        current.next = newNode;
+    }
+
+    function display() {
+        var currNode = this.head;
+        while (!(currNode.next == null)) {
+            console.log(currNode.next.element);
+            currNode = currNode.next;
+        }
+    }
+
+    function findPrevious(item) {
+        var currNode = this.head;
+        while (!(currNode.next == null) && (currNode.next.element != item)) {
+            currNode = currNode.next;
+        }
+        return currNode;
+    }
+
+    function remove(item) {
+        var prevNode = this.findPrevious(item);
+        if (!(prevNode.next==null)) {
+            prevNode.next = prevNode.next.next;
+        }
+
+    }
+    var cities = new LList();
+    cities.insert("Conwar", "head");
+    cities.insert("Russellville", "Conwar");
+    cities.insert("Alma", "Russellville");
+    cities.display();
+
+    cities.remove("Russellville");
+    cities.display();
+
+</script>
+</html>
