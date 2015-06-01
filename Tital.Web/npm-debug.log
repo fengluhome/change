@@ -16,5 +16,5 @@
 11 error npm -v 1.4.9
 12 error path D:\change\Tital.Web\package.json
 13 error code ENOPACKAGEJSON
-14 error errno 34
+14 error errno 34   
 15 verbose exit [ 34, true ]
